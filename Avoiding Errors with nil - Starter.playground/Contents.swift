@@ -50,6 +50,7 @@ struct Spell: MagicalTutorialObject {
   var avatar = "💫"
 }
 
+
 extension Spell {
   static func createWithMagicWords(words: String) -> Spell? {
     if let incantation = MagicWords(rawValue: words) {
