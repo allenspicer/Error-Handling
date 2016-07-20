@@ -53,12 +53,10 @@ struct Spell: MagicalTutorialObject {
 
 extension Spell {
     init?(words: String) {
-        if let incantation = MagicWords(rawValue: words) {
-            self.magicWords = incantation
-        }
-        else {
+        guard let incantation = MagicWords(rawValue: words) else {
             return nil
         }
+        self.magicWords = incantation
     }
 }
 
