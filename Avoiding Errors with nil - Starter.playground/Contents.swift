@@ -52,18 +52,20 @@ struct Spell: MagicalTutorialObject {
 
 
 extension Spell {
-  static func createWithMagicWords(words: String) -> Spell? {
-    if let incantation = MagicWords(rawValue: words) {
-      var spell = Spell()
-      spell.magicWords = incantation
-      return spell
+    init?(words: String) {
+        if let incantation = MagicWords(rawValue: words) {
+            self.magicWords = incantation
+        }
+        else {
+            return nil
+        }
     }
-    else {
-      return nil
-    }
-  }
 }
 
-let first = Spell.createWithMagicWords("abracadabra")
-let second = Spell.createWithMagicWords("ascendio")
-    
+
+let first = Spell(words: "abracadabra")
+let second = Spell(words: "ascendio")
+
+
+
+
